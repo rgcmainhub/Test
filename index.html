@@ -1,12 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen Hotel — Bacolod</title>
+<meta name="description" content="Book your stay at Lumen Hotel, Bacolod. Reserve a room, browse suites, and reach the front desk.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a basic HTML page.</p>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">
+      <span class="nav__logo-mark">L</span>
+      <span class="nav__logo-text">LUMEN <em>HOTEL</em></span>
+    </a>
+
+    <nav class="nav__links" id="navLinks">
+      <a href="#rooms">Rooms</a>
+      <a href="#booking">Book your stay</a>
+      <a href="#reservation">Reservation</a>
+      <a href="#visit">Visit us</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="btn btn--ghost" data-open-modal="signin">Sign in</button>
+      <button class="btn btn--brass" data-open-modal="signup">Sign up</button>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__arch" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="eyebrow">Bacolod, City of Smiles</p>
+    <h1 class="hero__title">A quiet<br>light to<br><span>come home to.</span></h1>
+    <p class="hero__lede">Twenty-two rooms above Lacson Street. No two mornings look the same — the light changes, the coffee's the same excellent pour.</p>
+    <a href="#booking" class="btn btn--brass btn--lg">Book your stay</a>
+  </div>
+</section>
+
+<!-- ============ BOOKING KEYCARD ============ -->
+<section class="booking" id="booking">
+  <form class="keycard" id="bookingForm">
+    <div class="keycard__stripe" aria-hidden="true"></div>
+    <p class="keycard__label">Check availability</p>
+    <div class="keycard__grid">
+      <div class="field">
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="field">
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+      <div class="field">
+        <label for="guests">Guests</label>
+        <select id="guests" name="guests">
+          <option>1 guest</option>
+          <option selected>2 guests</option>
+          <option>3 guests</option>
+          <option>4+ guests</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn--ink keycard__submit">Search rooms</button>
+    </div>
+    <p class="keycard__note" id="bookingNote" role="status"></p>
+  </form>
+</section>
+
+<!-- ============ ROOMS ============ -->
+<section class="rooms" id="rooms">
+  <div class="section-head">
+    <p class="eyebrow">Rooms &amp; suites</p>
+    <h2>Three ways to stay.</h2>
+  </div>
+
+  <div class="rooms__grid">
+    <article class="room-card reveal">
+      <div class="room-card__art room-card__art--studio" aria-hidden="true"></div>
+      <div class="room-card__body">
+        <h3>Studio Room</h3>
+        <p>22 sqm · 1 king bed · street-facing window</p>
+        <ul class="tags">
+          <li>Free wifi</li>
+          <li>Rain shower</li>
+          <li>Workdesk</li>
+        </ul>
+        <div class="room-card__foot">
+          <span class="price">₱3,200<small>/ night</small></span>
+          <a href="#reservation" class="btn btn--outline">Reserve</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card reveal">
+      <div class="room-card__art room-card__art--harbor" aria-hidden="true"></div>
+      <div class="room-card__body">
+        <h3>Harbor Suite</h3>
+        <p>38 sqm · 1 king bed · reading nook</p>
+        <ul class="tags">
+          <li>Soaking tub</li>
+          <li>Balcony</li>
+          <li>Minibar</li>
+        </ul>
+        <div class="room-card__foot">
+          <span class="price">₱5,600<small>/ night</small></span>
+          <a href="#reservation" class="btn btn--outline">Reserve</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card reveal">
+      <div class="room-card__art room-card__art--loft" aria-hidden="true"></div>
+      <div class="room-card__body">
+        <h3>Penthouse Loft</h3>
+        <p>64 sqm · 2 queen beds · private terrace</p>
+        <ul class="tags">
+          <li>Skyline view</li>
+          <li>Lounge</li>
+          <li>Butler service</li>
+        </ul>
+        <div class="room-card__foot">
+          <span class="price">₱9,800<small>/ night</small></span>
+          <a href="#reservation" class="btn btn--outline">Reserve</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ RESERVATION ============ -->
+<section class="reservation" id="reservation">
+  <div class="reservation__inner">
+    <div class="reservation__intro">
+      <p class="eyebrow">Reservation</p>
+      <h2>Lock in your room.</h2>
+      <p>Fill this in once and we'll set up a Lumen account so you can view, change, or cancel this booking anytime — no front-desk calls needed.</p>
+    </div>
+
+    <form class="res-form" id="reservationForm">
+      <div class="field">
+        <label for="resName">Full name</label>
+        <input type="text" id="resName" name="fullname" placeholder="Juan Dela Cruz" required>
+      </div>
+      <div class="field">
+        <label for="resEmail">Email</label>
+        <input type="email" id="resEmail" name="email" placeholder="juan@email.com" required>
+      </div>
+      <div class="field">
+        <label for="resPassword">Password</label>
+        <input type="password" id="resPassword" name="password" placeholder="At least 8 characters" minlength="8" required>
+      </div>
+      <div class="field">
+        <label for="resPhone">Phone number</label>
+        <input type="tel" id="resPhone" name="phone" placeholder="09XX XXX XXXX" required>
+      </div>
+      <div class="field">
+        <label for="resRoom">Room type</label>
+        <select id="resRoom" name="room">
+          <option>Studio Room — ₱3,200/night</option>
+          <option>Harbor Suite — ₱5,600/night</option>
+          <option>Penthouse Loft — ₱9,800/night</option>
+        </select>
+      </div>
+      <div class="field field--split">
+        <div>
+          <label for="resIn">Check-in</label>
+          <input type="date" id="resIn" name="checkin" required>
+        </div>
+        <div>
+          <label for="resOut">Check-out</label>
+          <input type="date" id="resOut" name="checkout" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn--brass btn--lg res-form__submit">Confirm reservation</button>
+      <p class="res-form__note" id="resNote" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ VISIT US ============ -->
+<section class="visit" id="visit">
+  <div class="visit__map" aria-hidden="true">
+    <div class="visit__pin"></div>
+  </div>
+  <div class="visit__card">
+    <p class="eyebrow">Visit us</p>
+    <h2>Find the light.</h2>
+    <p class="visit__address">12 Lacson Street, Barangay 4<br>Bacolod City, Negros Occidental 6100</p>
+    <p class="visit__phone">+63 34 123 4567</p>
+
+    <div class="socials">
+      <a class="socials__link" href="mailto:hello@lumenhotel.ph" aria-label="Email us on Gmail">
+        <span class="socials__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+        </span>
+        <span>Gmail</span>
+      </a>
+      <a class="socials__link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page">
+        <span class="socials__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>
+        </span>
+        <span>Facebook</span>
+      </a>
+      <a class="socials__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram profile">
+        <span class="socials__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.4"/><circle cx="16.6" cy="7.4" r="0.6" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="#top" class="nav__logo">
+      <span class="nav__logo-mark nav__logo-mark--sm">L</span>
+      <span class="nav__logo-text">LUMEN <em>HOTEL</em></span>
+    </a>
+    <p>&copy; 2026 Lumen Hotel, Bacolod. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ SIGN IN MODAL ============ -->
+<div class="modal" id="modal-signin" aria-hidden="true">
+  <div class="modal__backdrop" data-close-modal></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="signinTitle">
+    <button class="modal__close" data-close-modal aria-label="Close">&times;</button>
+    <p class="eyebrow">Welcome back</p>
+    <h3 id="signinTitle">Sign in</h3>
+    <form class="modal__form" id="signinForm">
+      <div class="field">
+        <label for="siEmail">Email</label>
+        <input type="email" id="siEmail" required>
+      </div>
+      <div class="field">
+        <label for="siPassword">Password</label>
+        <input type="password" id="siPassword" required>
+      </div>
+      <button type="submit" class="btn btn--ink btn--full">Sign in</button>
+    </form>
+    <p class="modal__switch">New to Lumen? <button type="button" data-switch-modal="signup">Create an account</button></p>
+  </div>
+</div>
+
+<!-- ============ SIGN UP MODAL ============ -->
+<div class="modal" id="modal-signup" aria-hidden="true">
+  <div class="modal__backdrop" data-close-modal></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <button class="modal__close" data-close-modal aria-label="Close">&times;</button>
+    <p class="eyebrow">First time here</p>
+    <h3 id="signupTitle">Create your account</h3>
+    <form class="modal__form" id="signupForm">
+      <div class="field">
+        <label for="suName">Full name</label>
+        <input type="text" id="suName" required>
+      </div>
+      <div class="field">
+        <label for="suEmail">Email</label>
+        <input type="email" id="suEmail" required>
+      </div>
+      <div class="field">
+        <label for="suPassword">Password</label>
+        <input type="password" id="suPassword" minlength="8" required>
+      </div>
+      <div class="field">
+        <label for="suPhone">Phone number</label>
+        <input type="tel" id="suPhone" required>
+      </div>
+      <button type="submit" class="btn btn--brass btn--full">Sign up</button>
+    </form>
+    <p class="modal__switch">Already a guest? <button type="button" data-switch-modal="signin">Sign in</button></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
