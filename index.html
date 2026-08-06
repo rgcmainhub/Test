@@ -7,12 +7,26 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <div class="announcement-content">
+        <span><i class="fa-solid fa-sparkles"></i> Exclusive Offer: Book directly for complimentary airport transfer & spa credits.</span>
+        <div class="announcement-links">
+          <a href="tel:+1800555LUXE"><i class="fa-solid fa-phone"></i> +1 (800) 555-LUXE</a>
+          <span class="divider">|</span>
+          <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
@@ -22,23 +36,19 @@
         <span>LuxeHaven</span>
       </a>
       
-      <!-- Desktop Navigation Links -->
-      <nav class="nav-links" id="navLinks">
-        <a href="#hero" class="nav-item active">Home</a>
-        <a href="#rooms" class="nav-item">Rooms & Suites</a>
-        <a href="#amenities" class="nav-item">Amenities</a>
-        <a href="#gallery" class="nav-item">Gallery</a>
-        <a href="#reviews" class="nav-item">Reviews</a>
-        <a href="#contact" class="nav-item">Contact</a>
-        <div class="mobile-only-action">
-          <a href="#booking" class="btn btn-primary btn-block">Book Now</a>
-        </div>
+      <!-- Desktop Navigation -->
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#rooms" class="nav-link">Rooms & Suites</a>
+        <a href="#amenities" class="nav-link">Amenities</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="#booking" class="btn btn-primary">Book Now</a>
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <button class="btn btn-primary open-booking-modal">Book Now</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -47,98 +57,125 @@
     </div>
   </header>
 
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-hotel"></i>
+        <span>LuxeHaven</span>
+      </a>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="drawer-links">
+      <a href="#hero" class="drawer-link">Home</a>
+      <a href="#rooms" class="drawer-link">Rooms & Suites</a>
+      <a href="#amenities" class="drawer-link">Amenities</a>
+      <a href="#gallery" class="drawer-link">Gallery</a>
+      <a href="#faq" class="drawer-link">FAQ</a>
+      <a href="#reviews" class="drawer-link">Reviews</a>
+      <a href="#contact" class="drawer-link">Contact</a>
+    </nav>
+    <div class="drawer-footer">
+      <button class="btn btn-gold btn-block open-booking-modal">Book A Room</button>
+      <div class="drawer-socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-tripadvisor"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-bg">
       <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80" alt="LuxeHaven Resort Pool">
       <div class="hero-overlay"></div>
     </div>
-    <div class="hero-content">
-      <span class="badge"><i class="fa-solid fa-star"></i> 5-Star Luxury Destination</span>
-      <h1>Experience Unrivaled Comfort & Elegance</h1>
-      <p>Escape to a world of serenity, majestic ocean views, and world-class hospitality tailored exclusively for you.</p>
-      <div class="hero-buttons">
-        <a href="#rooms" class="btn btn-gold">Explore Suites</a>
-        <a href="#booking" class="btn btn-outline-white">Check Dates</a>
+    <div class="hero-content container">
+      <span class="badge scroll-reveal"><i class="fa-solid fa-star"></i> 5-Star Luxury Destination</span>
+      <h1 class="scroll-reveal delay-1">Experience Unrivaled Comfort & Elegance</h1>
+      <p class="scroll-reveal delay-2">Escape to a sanctuary of serenity, majestic ocean views, and world-class hospitality tailored exclusively for you.</p>
+      
+      <!-- Booking Search Bar -->
+      <div class="search-bar-wrapper scroll-reveal delay-3" id="booking">
+        <form class="search-bar" id="hero-booking-form">
+          <div class="search-field">
+            <label><i class="fa-solid fa-calendar-check"></i> Check-in</label>
+            <input type="date" id="hero-check-in" required>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <label><i class="fa-solid fa-calendar-xmark"></i> Check-out</label>
+            <input type="date" id="hero-check-out" required>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <label><i class="fa-solid fa-user-group"></i> Guests</label>
+            <select id="hero-guests">
+              <option value="1">1 Adult</option>
+              <option value="2" selected>2 Adults</option>
+              <option value="3">2 Adults, 1 Child</option>
+              <option value="4">4 Guests (Family)</option>
+            </select>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <label><i class="fa-solid fa-bed"></i> Room Type</label>
+            <select id="hero-room-type">
+              <option value="all">All Room Types</option>
+              <option value="deluxe">Deluxe Ocean Suite</option>
+              <option value="sky">Executive Sky Villa</option>
+              <option value="garden">Garden Bungalow</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i> <span>Check Availability</span>
+          </button>
+        </form>
       </div>
     </div>
   </section>
-
-  <!-- Booking Search Bar Container (Overlapping Hero) -->
-  <div class="booking-container container" id="booking">
-    <div class="search-bar-wrapper">
-      <form class="search-bar" onsubmit="event.preventDefault(); alert('Searching available rooms for your selected dates...');">
-        <div class="search-field">
-          <label><i class="fa-solid fa-calendar-check text-gold"></i> Check-in</label>
-          <input type="date" value="2025-06-15" required>
-        </div>
-        <div class="search-field">
-          <label><i class="fa-solid fa-calendar-xmark text-gold"></i> Check-out</label>
-          <input type="date" value="2025-06-20" required>
-        </div>
-        <div class="search-field">
-          <label><i class="fa-solid fa-user-group text-gold"></i> Guests</label>
-          <select>
-            <option value="1">1 Adult</option>
-            <option value="2" selected>2 Adults</option>
-            <option value="3">2 Adults, 1 Child</option>
-            <option value="4">4 Guests (Family)</option>
-          </select>
-        </div>
-        <div class="search-field">
-          <label><i class="fa-solid fa-bed text-gold"></i> Suite Type</label>
-          <select>
-            <option value="all">All Room Types</option>
-            <option value="deluxe">Deluxe Ocean Suite</option>
-            <option value="sky">Executive Sky Villa</option>
-            <option value="garden">Garden Bungalow</option>
-          </select>
-        </div>
-        <div class="search-field-button">
-          <button type="submit" class="btn btn-gold btn-block search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i> <span>Search</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <!-- Key Benefits Bar -->
   <section class="features-bar">
     <div class="container">
       <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon-box">
+        <div class="feature-item scroll-reveal">
+          <div class="feature-icon-wrapper">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <div class="feature-info">
+          <div>
             <h4>Best Price Guarantee</h4>
             <p>Book direct for the lowest rate</p>
           </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon-box">
+        <div class="feature-item scroll-reveal delay-1">
+          <div class="feature-icon-wrapper">
             <i class="fa-solid fa-wifi"></i>
           </div>
-          <div class="feature-info">
+          <div>
             <h4>Free High-Speed Wi-Fi</h4>
-            <p>Uninterrupted fiber connection</p>
+            <p>Uninterrupted global connection</p>
           </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon-box">
+        <div class="feature-item scroll-reveal delay-2">
+          <div class="feature-icon-wrapper">
             <i class="fa-solid fa-utensils"></i>
           </div>
-          <div class="feature-info">
+          <div>
             <h4>Complimentary Breakfast</h4>
-            <p>Gourmet organic daily dining</p>
+            <p>Gourmet organic dining daily</p>
           </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon-box">
+        <div class="feature-item scroll-reveal delay-3">
+          <div class="feature-icon-wrapper">
             <i class="fa-solid fa-bell-concierge"></i>
           </div>
-          <div class="feature-info">
+          <div>
             <h4>24/7 Butler Service</h4>
             <p>At your beck and call anytime</p>
           </div>
@@ -150,91 +187,98 @@
   <!-- Featured Rooms & Suites -->
   <section class="rooms-section" id="rooms">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-reveal">
         <span class="sub-heading">ACCOMMODATION</span>
         <h2>Handcrafted Rooms & Suites</h2>
-        <div class="heading-divider"></div>
-        <p class="section-desc">Each room offers panoramic views, state-of-the-art smart automation, and handcrafted Italian leather furnishings.</p>
+        <p>Each room offers panoramic views, state-of-the-art automation, and custom Italian leather furnishings.</p>
+        
+        <!-- Interactive Room Filters -->
+        <div class="room-filters">
+          <button class="filter-btn active" data-filter="all">All Rooms</button>
+          <button class="filter-btn" data-filter="suite">Suites</button>
+          <button class="filter-btn" data-filter="villa">Villas</button>
+          <button class="filter-btn" data-filter="bungalow">Bungalows</button>
+        </div>
       </div>
 
       <div class="rooms-grid">
-        <!-- Room 1 -->
-        <div class="room-card">
+        <!-- Room 1 (Suite) -->
+        <div class="room-card scroll-reveal" data-type="suite">
           <div class="room-img-container">
             <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Deluxe Ocean Suite">
             <span class="room-tag">Most Popular</span>
           </div>
           <div class="room-details">
             <div class="room-meta">
-              <span class="room-rating"><i class="fa-solid fa-star"></i> 4.9 (128 Reviews)</span>
+              <span class="room-rating"><i class="fa-solid fa-star"></i> 4.9 (128 reviews)</span>
               <span class="room-size"><i class="fa-solid fa-vector-square"></i> 65 m²</span>
             </div>
             <h3>Deluxe Ocean Suite</h3>
-            <p class="room-desc-text">Panoramic balcony with direct Pacific ocean sunrise views and private outdoor jacuzzi tub.</p>
+            <p>Panoramic balcony with direct Pacific ocean sunrise views and private jacuzzi tub.</p>
             <div class="room-amenities">
-              <span><i class="fa-solid fa-bed text-gold"></i> King Bed</span>
-              <span><i class="fa-solid fa-water text-gold"></i> Ocean View</span>
-              <span><i class="fa-solid fa-bath text-gold"></i> Hot Tub</span>
+              <span><i class="fa-solid fa-bed"></i> King Bed</span>
+              <span><i class="fa-solid fa-water"></i> Ocean View</span>
+              <span><i class="fa-solid fa-bath"></i> Hot Tub</span>
             </div>
             <div class="room-card-footer">
               <div class="price">
                 <span class="currency">$</span><span class="amount">280</span><span class="period">/ night</span>
               </div>
-              <button class="btn btn-outline" onclick="alert('Booking Deluxe Ocean Suite')">Book Suite</button>
+              <button class="btn btn-outline book-room-btn" data-room="Deluxe Ocean Suite" data-price="280">Book Suite</button>
             </div>
           </div>
         </div>
 
-        <!-- Room 2 -->
-        <div class="room-card">
+        <!-- Room 2 (Villa) -->
+        <div class="room-card scroll-reveal delay-1" data-type="villa">
           <div class="room-img-container">
             <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Executive Sky Villa">
             <span class="room-tag gold">Penthouse</span>
           </div>
           <div class="room-details">
             <div class="room-meta">
-              <span class="room-rating"><i class="fa-solid fa-star"></i> 5.0 (89 Reviews)</span>
+              <span class="room-rating"><i class="fa-solid fa-star"></i> 5.0 (89 reviews)</span>
               <span class="room-size"><i class="fa-solid fa-vector-square"></i> 120 m²</span>
             </div>
             <h3>Executive Sky Villa</h3>
-            <p class="room-desc-text">Private rooftop plunge pool, dedicated personal butler, and infinite skyline and ocean views.</p>
+            <p>Private rooftop plunge pool, dedicated personal butler, and infinite skyline views.</p>
             <div class="room-amenities">
-              <span><i class="fa-solid fa-swimming-pool text-gold"></i> Private Pool</span>
-              <span><i class="fa-solid fa-martini-glass-citrus text-gold"></i> Mini Bar</span>
-              <span><i class="fa-solid fa-user-tie text-gold"></i> Butler Service</span>
+              <span><i class="fa-solid fa-swimming-pool"></i> Private Pool</span>
+              <span><i class="fa-solid fa-martini-glass-citrus"></i> Mini Bar</span>
+              <span><i class="fa-solid fa-user-tie"></i> Butler Service</span>
             </div>
             <div class="room-card-footer">
               <div class="price">
                 <span class="currency">$</span><span class="amount">520</span><span class="period">/ night</span>
               </div>
-              <button class="btn btn-outline" onclick="alert('Booking Executive Sky Villa')">Book Villa</button>
+              <button class="btn btn-outline book-room-btn" data-room="Executive Sky Villa" data-price="520">Book Villa</button>
             </div>
           </div>
         </div>
 
-        <!-- Room 3 -->
-        <div class="room-card">
+        <!-- Room 3 (Bungalow) -->
+        <div class="room-card scroll-reveal delay-2" data-type="bungalow">
           <div class="room-img-container">
             <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Garden Sanctuary Bungalow">
             <span class="room-tag green">Serene</span>
           </div>
           <div class="room-details">
             <div class="room-meta">
-              <span class="room-rating"><i class="fa-solid fa-star"></i> 4.8 (95 Reviews)</span>
+              <span class="room-rating"><i class="fa-solid fa-star"></i> 4.8 (95 reviews)</span>
               <span class="room-size"><i class="fa-solid fa-vector-square"></i> 55 m²</span>
             </div>
             <h3>Garden Sanctuary Bungalow</h3>
-            <p class="room-desc-text">Nestled in tropical flora with outdoor rainfall shower and private hammock patio area.</p>
+            <p>Nestled in tropical flora with outdoor rainfall shower and private hammock patio.</p>
             <div class="room-amenities">
-              <span><i class="fa-solid fa-tree text-gold"></i> Garden View</span>
-              <span><i class="fa-solid fa-shower text-gold"></i> Outdoor Shower</span>
-              <span><i class="fa-solid fa-coffee text-gold"></i> Espresso</span>
+              <span><i class="fa-solid fa-tree"></i> Garden View</span>
+              <span><i class="fa-solid fa-shower"></i> Outdoor Shower</span>
+              <span><i class="fa-solid fa-coffee"></i> Espresso Machine</span>
             </div>
             <div class="room-card-footer">
               <div class="price">
                 <span class="currency">$</span><span class="amount">210</span><span class="period">/ night</span>
               </div>
-              <button class="btn btn-outline" onclick="alert('Booking Garden Sanctuary Bungalow')">Book Room</button>
+              <button class="btn btn-outline book-room-btn" data-room="Garden Sanctuary Bungalow" data-price="210">Book Room</button>
             </div>
           </div>
         </div>
@@ -245,50 +289,43 @@
   <!-- Hotel Amenities Section -->
   <section class="amenities-section" id="amenities">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-reveal">
         <span class="sub-heading">EXCLUSIVITY & REFINEMENT</span>
         <h2>Resort Amenities</h2>
-        <div class="heading-divider"></div>
-        <p class="section-desc">Immerse yourself in world-class wellness, fine culinary dining, and curated leisure facilities.</p>
+        <p>Immerse yourself in world-class wellness, dining, and leisure facilities.</p>
       </div>
 
       <div class="amenities-grid">
-        <div class="amenity-card">
+        <div class="amenity-card scroll-reveal">
           <div class="amenity-img">
             <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Infinity Pool">
           </div>
           <div class="amenity-info">
-            <div class="amenity-icon-wrapper">
-              <i class="fa-solid fa-water-ladder"></i>
-            </div>
+            <i class="fa-solid fa-water-ladder amenity-icon"></i>
             <h3>Infinity Horizon Pool</h3>
-            <p>Temperature-controlled infinity pool overlooking the ocean with poolside luxury cocktail bar service.</p>
+            <p>Temperature-controlled infinity pool overlooking the ocean with poolside cocktail service.</p>
           </div>
         </div>
 
-        <div class="amenity-card">
+        <div class="amenity-card scroll-reveal delay-1">
           <div class="amenity-img">
             <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Lotus Wellness Spa">
           </div>
           <div class="amenity-info">
-            <div class="amenity-icon-wrapper">
-              <i class="fa-solid fa-spa"></i>
-            </div>
+            <i class="fa-solid fa-spa amenity-icon"></i>
             <h3>Lotus Wellness Spa</h3>
-            <p>Holistic massage therapies, organic aromatherapy, steam saunas, and mineral hydrotherapy pools.</p>
+            <p>Holistic massage therapies, aromatherapy, steam saunas, and private hydrotherapy pools.</p>
           </div>
         </div>
 
-        <div class="amenity-card">
+        <div class="amenity-card scroll-reveal delay-2">
           <div class="amenity-img">
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Michelin Star Dining">
           </div>
           <div class="amenity-info">
-            <div class="amenity-icon-wrapper">
-              <i class="fa-solid fa-wine-glass"></i>
-            </div>
+            <i class="fa-solid fa-wine-glass-empty amenity-icon"></i>
             <h3>Aura Fine Dining</h3>
-            <p>Michelin-starred culinary experiences featuring organic local ingredients and premium sommelier wines.</p>
+            <p>Michelin-starred culinary experiences featuring organic ingredients and master sommelier pairings.</p>
           </div>
         </div>
       </div>
@@ -299,20 +336,21 @@
   <section class="showcase-section">
     <div class="container">
       <div class="showcase-content">
-        <div class="showcase-text">
+        <div class="showcase-text scroll-reveal">
           <span class="sub-heading gold-text">UNFORGETTABLE MOMENTS</span>
           <h2>A Sanctuary Crafted for Relaxation</h2>
-          <div class="heading-divider left"></div>
-          <p>Whether you're sipping a signature cocktail at sunset, enjoying a private beachfront dinner, or unwinding in our spa, every single detail is meticulously curated for perfection.</p>
+          <p>Whether you're sipping a signature cocktail at sunset, enjoying a private beach dinner, or unwinding in our spa, every detail is meticulously curated for perfection.</p>
           <ul class="check-list">
-            <li><i class="fa-solid fa-circle-check text-gold"></i> Private beachfront cabanas & sun loungers</li>
-            <li><i class="fa-solid fa-circle-check text-gold"></i> Helicopter landing pad & private yacht charters</li>
-            <li><i class="fa-solid fa-circle-check text-gold"></i> Curated wine tasting sessions with master sommeliers</li>
+            <li><i class="fa-solid fa-circle-check"></i> Private beachfront cabanas & sun loungers</li>
+            <li><i class="fa-solid fa-circle-check"></i> Helicopter landing pad & private yacht charters</li>
+            <li><i class="fa-solid fa-circle-check"></i> Curated wine tasting sessions with master sommeliers</li>
           </ul>
-          <a href="#contact" class="btn btn-gold mt-4">Plan Your Escape</a>
+          <button class="btn btn-gold mt-4 open-booking-modal">Plan Your Escape</button>
         </div>
-        <div class="showcase-image">
-          <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80" alt="Resort sunset lounge">
+        <div class="showcase-image scroll-reveal delay-2">
+          <div class="image-frame">
+            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80" alt="Resort sunset lounge">
+          </div>
         </div>
       </div>
     </div>
@@ -321,34 +359,90 @@
   <!-- Photo Gallery Section -->
   <section class="gallery-section" id="gallery">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-reveal">
         <span class="sub-heading">PHOTO GALLERY</span>
         <h2>Explore LuxeHaven</h2>
-        <div class="heading-divider"></div>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item item-1">
+        <div class="gallery-item item-1 scroll-reveal">
           <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Pool Area">
           <div class="gallery-overlay">
-            <span>Sunset Pool Bar</span>
+            <span class="gallery-category">LEISURE</span>
+            <h3>Sunset Pool Bar</h3>
           </div>
         </div>
-        <div class="gallery-item item-2">
+        <div class="gallery-item item-2 scroll-reveal delay-1">
           <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Luxury Suite">
           <div class="gallery-overlay">
-            <span>Master Suite</span>
+            <span class="gallery-category">SUITE</span>
+            <h3>Master Sky Penthouse</h3>
           </div>
         </div>
-        <div class="gallery-item item-3">
+        <div class="gallery-item item-3 scroll-reveal delay-2">
           <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa Treatment">
           <div class="gallery-overlay">
-            <span>Aroma Therapy</span>
+            <span class="gallery-category">WELLNESS</span>
+            <h3>Aroma Therapy Spa</h3>
           </div>
         </div>
-        <div class="gallery-item item-4">
+        <div class="gallery-item item-4 scroll-reveal delay-3">
           <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
           <div class="gallery-overlay">
-            <span>Aura Restaurant</span>
+            <span class="gallery-category">DINING</span>
+            <h3>Aura Restaurant</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="sub-heading">HAVE QUESTIONS?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about your luxury stay at LuxeHaven.</p>
+      </div>
+      
+      <div class="faq-accordion-wrapper scroll-reveal">
+        <div class="faq-item active">
+          <button class="faq-trigger">
+            <span>What are the check-in and check-out times?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <p>Check-in is from 3:00 PM onwards, and check-out is until 12:00 PM. Early check-in or late check-out can be requested upon booking and is subject to availability.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Is airport transportation included?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <p>Yes, we offer complimentary luxury Mercedes-Benz airport transfers for all guests booking our Executive Sky Villas or Deluxe Ocean Suites directly through our website.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What is the resort's cancellation policy?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <p>We offer free cancellation up to 72 hours prior to arrival for standard rates. Special promotional packages may have different cancellation terms, so please review them when booking.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Are pets allowed at LuxeHaven?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <p>We welcome small to medium-sized pets in our Garden Sanctuary Bungalows. A pet-concierge service is available with special organic pet menus, bedding, and walking services.</p>
           </div>
         </div>
       </div>
@@ -358,17 +452,16 @@
   <!-- Guest Testimonials -->
   <section class="reviews-section" id="reviews">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-reveal">
         <span class="sub-heading">GUEST REVIEWS</span>
         <h2>What Our Guests Say</h2>
-        <div class="heading-divider"></div>
       </div>
       <div class="reviews-grid">
-        <div class="review-card">
+        <div class="review-card scroll-reveal">
           <div class="stars">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
-          <p class="review-text">"Absolutely breathtaking hotel! The ocean view from our Sky Villa was incredible, and the personalized butler service exceeded every single expectation."</p>
+          <p class="review-text">"Absolutely breathtaking hotel! The ocean view from our Sky Villa was incredible, and the butler service exceeded every expectation."</p>
           <div class="reviewer-info">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Sophia Reynolds">
             <div>
@@ -378,11 +471,11 @@
           </div>
         </div>
 
-        <div class="review-card">
+        <div class="review-card scroll-reveal delay-1">
           <div class="stars">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
-          <p class="review-text">"The spa treatments were the best I've ever experienced in my travels. LuxeHaven is pure tranquility. We will definitely be returning next year."</p>
+          <p class="review-text">"The spa treatments were the best I've ever experienced. LuxeHaven is pure tranquility. We will definitely be back next year."</p>
           <div class="reviewer-info">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="David Sterling">
             <div>
@@ -392,11 +485,11 @@
           </div>
         </div>
 
-        <div class="review-card">
+        <div class="review-card scroll-reveal delay-2">
           <div class="stars">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
-          <p class="review-text">"Flawless hospitality from arrival to departure. The breakfast buffet has the freshest organic fruits and artisanal pastries I've ever tasted!"</p>
+          <p class="review-text">"Flawless hospitality from arrival to departure. The breakfast buffet has the freshest fruits and pastries I've tasted!"</p>
           <div class="reviewer-info">
             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova">
             <div>
@@ -412,13 +505,13 @@
   <!-- Newsletter & Quick Contact -->
   <section class="newsletter-section" id="contact">
     <div class="container">
-      <div class="newsletter-card">
+      <div class="newsletter-card scroll-reveal">
         <div class="newsletter-text">
           <h2>Subscribe For Exclusive Offers</h2>
-          <p>Join our VIP guest list and receive 15% off your first stay along with seasonal luxury resort promotions.</p>
+          <p>Join our VIP guest list and receive 15% off your first stay along with seasonal luxury promotions.</p>
         </div>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to LuxeHaven exclusive updates!');">
-          <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to LuxeHaven Updates!'); this.reset();">
+          <input type="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn btn-gold">Subscribe</button>
         </form>
       </div>
@@ -434,12 +527,12 @@
             <i class="fa-solid fa-hotel"></i>
             <span>LuxeHaven</span>
           </a>
-          <p>A paradise where luxury meets absolute serenity. Crafting unforgettable stays on coastal shores with world-class hospitality.</p>
+          <p>A paradise where luxury meets serenity. Crafting unforgettable stays on pristine coastal shores.</p>
           <div class="social-links">
             <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+            <a href="#" aria-label="Tripadvisor"><i class="fa-brands fa-tripadvisor"></i></a>
           </div>
         </div>
 
@@ -450,7 +543,7 @@
             <li><a href="#rooms">Rooms & Suites</a></li>
             <li><a href="#amenities">Amenities</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#reviews">Guest Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
 
@@ -467,9 +560,9 @@
 
         <div class="footer-contact">
           <h4>Contact Us</h4>
-          <p><i class="fa-solid fa-location-dot text-gold"></i> 777 Paradise Way, Resort Coast, CA 90210</p>
-          <p><i class="fa-solid fa-phone text-gold"></i> +1 (800) 555-LUXE</p>
-          <p><i class="fa-solid fa-envelope text-gold"></i> concierge@luxehavenresort.com</p>
+          <p><i class="fa-solid fa-location-dot"></i> 777 Paradise Way, Resort Coast, CA 90210</p>
+          <p><i class="fa-solid fa-phone"></i> +1 (800) 555-LUXE</p>
+          <p><i class="fa-solid fa-envelope"></i> concierge@luxehavenresort.com</p>
         </div>
       </div>
 
@@ -484,11 +577,101 @@
     </div>
   </footer>
 
-  <!-- JavaScript for Navigation & Interactions -->
+  <!-- Interactive Booking Modal -->
+  <div class="booking-modal-container" id="booking-modal">
+    <div class="booking-modal">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <h3>Book Your LuxeHaven Stay</h3>
+        <p>Complete the form below to reservation your luxury experience.</p>
+      </div>
+      <form class="modal-form" id="modal-booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-room-select">Select Room/Suite</label>
+            <select id="modal-room-select" required>
+              <option value="Deluxe Ocean Suite" data-price="280">Deluxe Ocean Suite ($280/night)</option>
+              <option value="Executive Sky Villa" data-price="520">Executive Sky Villa ($520/night)</option>
+              <option value="Garden Sanctuary Bungalow" data-price="210">Garden Sanctuary Bungalow ($210/night)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row split">
+          <div class="form-group">
+            <label for="modal-check-in">Check-in Date</label>
+            <input type="date" id="modal-check-in" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-check-out">Check-out Date</label>
+            <input type="date" id="modal-check-out" required>
+          </div>
+        </div>
+        <div class="form-row split">
+          <div class="form-group">
+            <label for="modal-guests">Guests</label>
+            <select id="modal-guests">
+              <option value="1">1 Adult</option>
+              <option value="2" selected>2 Adults</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modal-promo">Promo Code</label>
+            <input type="text" id="modal-promo" placeholder="Optional">
+          </div>
+        </div>
+        <div class="booking-summary">
+          <h4>Reservation Summary</h4>
+          <div class="summary-details">
+            <p>Selected: <strong id="summary-room-name">-</strong></p>
+            <p>Duration: <strong id="summary-nights">0 nights</strong></p>
+            <p class="total-price">Estimated Total: <strong id="summary-total-price">$0</strong></p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">Confirm Reservation</button>
+      </form>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- Booking Success Toast -->
+  <div class="booking-toast" id="booking-toast">
+    <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="toast-content">
+      <h4>Reservation Successful!</h4>
+      <p>Your luxury stay has been booked. Check your email for details.</p>
+    </div>
+  </div>
+
   <script>
-    // Header shadow and glassmorphism styling on scroll
-    const navbar = document.getElementById('navbar');
+    // Set default dates for booking forms (today and 5 days from now)
+    const today = new Date();
+    const futureDate = new Date();
+    futureDate.setDate(today.getDate() + 5);
+
+    const formatDate = (date) => {
+      let d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+
+      return [year, month, day].join('-');
+    };
+
+    document.getElementById('hero-check-in').value = formatDate(today);
+    document.getElementById('hero-check-out').value = formatDate(futureDate);
+    document.getElementById('modal-check-in').value = formatDate(today);
+    document.getElementById('modal-check-out').value = formatDate(futureDate);
+
+    // Header scroll state
     window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
@@ -496,45 +679,201 @@
       }
     });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
+    // Mobile menu drawer toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerClose = document.getElementById('drawer-close');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    const toggleDrawer = () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileDrawer.classList.toggle('active');
+      drawerOverlay.classList.toggle('active');
       document.body.classList.toggle('no-scroll');
-    });
+    };
 
-    // Close mobile menu on clicking any navigation link
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.classList.remove('no-scroll');
+    mobileMenuBtn.addEventListener('click', toggleDrawer);
+    drawerClose.addEventListener('click', toggleDrawer);
+    drawerOverlay.addEventListener('click', toggleDrawer);
+    drawerLinks.forEach(link => link.addEventListener('click', toggleDrawer));
+
+    // Interactive Room Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const roomCards = document.querySelectorAll('.room-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active class
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        roomCards.forEach(card => {
+          const roomType = card.getAttribute('data-type');
+          if (filterValue === 'all' || roomType === filterValue) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
       });
     });
 
-    // Intersection Observer for active navigation links based on scroll section
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${current}`) {
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const trigger = item.querySelector('.faq-trigger');
+      trigger.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close all faq items
+        faqItems.forEach(i => i.classList.remove('active'));
+        // Open selected if it wasn't active
+        if (!isActive) {
           item.classList.add('active');
         }
       });
     });
+
+    // Booking Modal Functionality
+    const bookingModal = document.getElementById('booking-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const openModalBtns = document.querySelectorAll('.open-booking-modal');
+    const bookRoomBtns = document.querySelectorAll('.book-room-btn');
+    
+    // Modal Selectors
+    const modalRoomSelect = document.getElementById('modal-room-select');
+    const modalCheckIn = document.getElementById('modal-check-in');
+    const modalCheckOut = document.getElementById('modal-check-out');
+    const summaryRoomName = document.getElementById('summary-room-name');
+    const summaryNights = document.getElementById('summary-nights');
+    const summaryTotalPrice = document.getElementById('summary-total-price');
+    const modalForm = document.getElementById('modal-booking-form');
+    const bookingToast = document.getElementById('booking-toast');
+
+    const updateBookingSummary = () => {
+      const selectedOption = modalRoomSelect.options[modalRoomSelect.selectedIndex];
+      const roomName = selectedOption.value;
+      const pricePerNight = parseInt(selectedOption.getAttribute('data-price'));
+
+      const checkInDate = new Date(modalCheckIn.value);
+      const checkOutDate = new Date(modalCheckOut.value);
+
+      let nights = 1;
+      if (checkOutDate > checkInDate) {
+        const diffTime = Math.abs(checkOutDate - checkInDate);
+        nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      }
+
+      const total = pricePerNight * nights;
+
+      summaryRoomName.textContent = roomName;
+      summaryNights.textContent = `${nights} night${nights > 1 ? 's' : ''}`;
+      summaryTotalPrice.textContent = `$${total}`;
+    };
+
+    const openModal = () => {
+      bookingModal.classList.add('active');
+      modalOverlay.classList.add('active');
+      document.body.classList.add('no-scroll');
+      updateBookingSummary();
+    };
+
+    const closeModal = () => {
+      bookingModal.classList.remove('active');
+      modalOverlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    };
+
+    openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    // Book specific room button click
+    bookRoomBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const roomName = btn.getAttribute('data-room');
+        // Select matching room in dropdown
+        for (let i = 0; i < modalRoomSelect.options.length; i++) {
+          if (modalRoomSelect.options[i].value === roomName) {
+            modalRoomSelect.selectedIndex = i;
+            break;
+          }
+        }
+        openModal();
+      });
+    });
+
+    modalRoomSelect.addEventListener('change', updateBookingSummary);
+    modalCheckIn.addEventListener('change', updateBookingSummary);
+    modalCheckOut.addEventListener('change', updateBookingSummary);
+
+    // Hero Search Form submission starts modal booking process
+    document.getElementById('hero-booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const heroRoom = document.getElementById('hero-room-type').value;
+      const heroIn = document.getElementById('hero-check-in').value;
+      const heroOut = document.getElementById('hero-check-out').value;
+      const heroGuestsVal = document.getElementById('hero-guests').value;
+
+      // Sync to modal fields
+      modalCheckIn.value = heroIn;
+      modalCheckOut.value = heroOut;
+      modalGuests.value = heroGuestsVal;
+
+      if (heroRoom !== 'all') {
+        // Map simplified values
+        let targetValue = "Deluxe Ocean Suite";
+        if (heroRoom === 'sky') targetValue = "Executive Sky Villa";
+        if (heroRoom === 'garden') targetValue = "Garden Sanctuary Bungalow";
+
+        for (let i = 0; i < modalRoomSelect.options.length; i++) {
+          if (modalRoomSelect.options[i].value === targetValue) {
+            modalRoomSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      openModal();
+    });
+
+    // Form confirmation
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      closeModal();
+      
+      // Trigger Toast Notification
+      bookingToast.classList.add('active');
+      setTimeout(() => {
+        bookingToast.classList.remove('active');
+      }, 5000);
+    });
+
+    // Scroll Reveal Animation (Intersection Observer)
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => revealOnScroll.observe(el));
   </script>
 </body>
 </html>
