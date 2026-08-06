@@ -10,10 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Added cache-busting query parameter (?v=1.1.2) to force browser to load fresh styles -->
-  <link rel="stylesheet" href="style.css?v=1.1.2">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Loading Screen (Updated Status Indicator) -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loader-content">
+      <div class="hotel-icon-spin">
+        <i class="fa-solid fa-hotel"></i>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <h3 class="loader-title">LuxeHaven Resort</h3>
+      <p class="loader-status" id="loader-status">Initializing System...</p>
+    </div>
+  </div>
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
@@ -368,37 +381,29 @@
         <div class="gallery-item item-1 scroll-reveal">
           <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Pool Area">
           <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <span class="gallery-category">LEISURE</span>
-              <h3>Sunset Pool Bar</h3>
-            </div>
+            <span class="gallery-category">LEISURE</span>
+            <h3>Sunset Pool Bar</h3>
           </div>
         </div>
         <div class="gallery-item item-2 scroll-reveal delay-1">
           <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Luxury Suite">
           <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <span class="gallery-category">SUITE</span>
-              <h3>Master Sky Penthouse</h3>
-            </div>
+            <span class="gallery-category">SUITE</span>
+            <h3>Master Sky Penthouse</h3>
           </div>
         </div>
         <div class="gallery-item item-3 scroll-reveal delay-2">
           <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa Treatment">
           <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <span class="gallery-category">WELLNESS</span>
-              <h3>Aroma Therapy Spa</h3>
-            </div>
+            <span class="gallery-category">WELLNESS</span>
+            <h3>Aroma Therapy Spa</h3>
           </div>
         </div>
         <div class="gallery-item item-4 scroll-reveal delay-3">
           <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
           <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <span class="gallery-category">DINING</span>
-              <h3>Aura Restaurant</h3>
-            </div>
+            <span class="gallery-category">DINING</span>
+            <h3>Aura Restaurant</h3>
           </div>
         </div>
       </div>
@@ -656,6 +661,34 @@
   </div>
 
   <script>
+    // Loading Screen Process
+    window.addEventListener('DOMContentLoaded', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      const loaderStatus = document.getElementById('loader-status');
+      const progress = document.querySelector('.loader-progress');
+      
+      const statuses = [
+        { text: "Loading luxury assets...", width: "30%" },
+        { text: "Optimizing responsive viewports...", width: "65%" },
+        { text: "Updated!", width: "100%" }
+      ];
+
+      let step = 0;
+      const interval = setInterval(() => {
+        if (step < statuses.length) {
+          loaderStatus.textContent = statuses[step].text;
+          progress.style.width = statuses[step].width;
+          step++;
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            document.body.classList.remove('no-scroll');
+          }, 600);
+        }
+      }, 500);
+    });
+
     // Set default dates for booking forms (today and 5 days from now)
     const today = new Date();
     const futureDate = new Date();
@@ -769,7 +802,6 @@
     const summaryTotalPrice = document.getElementById('summary-total-price');
     const modalForm = document.getElementById('modal-booking-form');
     const bookingToast = document.getElementById('booking-toast');
-    const modalGuests = document.getElementById('modal-guests');
 
     const updateBookingSummary = () => {
       const selectedOption = modalRoomSelect.options[modalRoomSelect.selectedIndex];
