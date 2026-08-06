@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MusicA</string>
+    <string name="author_credit">DevNameGelo, RGC</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="playlists">Playlists</string>
+    <string name="liked_songs">Liked Songs</string>
+    <string name="settings">Settings</string>
+</resources>

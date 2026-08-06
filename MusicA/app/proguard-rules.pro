@@ -1,0 +1,1 @@
+-keep class com.music.rgc.app.** { *; }
