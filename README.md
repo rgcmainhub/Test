@@ -1,3 +1,0 @@
-# Test
-
-MusicA Gradle Project.
